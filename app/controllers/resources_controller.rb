@@ -3,6 +3,7 @@ class ResourcesController < ApplicationController
 
   # GET /resources
   def index
+    response.headers['Access-Control-Allow-Origin'] = '*'
     @resources = Resource.all
 
     render json: @resources
@@ -41,6 +42,7 @@ class ResourcesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_resource
+      response.headers['Access-Control-Allow-Origin'] = '*'
       @resource = Resource.find(params[:id])
     end
 
